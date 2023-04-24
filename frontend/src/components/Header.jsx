@@ -7,20 +7,19 @@ const Header = () => {
             className="bg-cover bg-center h-screen relative pt-4"
             style={{ backgroundImage: `url("${Background}")` }}
         >
-            <div className="absoulte inset-0 bg-black opacity-50"></div>
             <div className="container mx-auto flex items-center justify-between">
                 <div className="flex items-center">
                     <div className="text-white font-bold text-2xl">
                         <a href="/">Интерьер.</a>
                     </div>
-                    <form className="ml-5">
-                        <input
-                            type="text"
-                            placeholder="Поиск"
-                            className="placeholder-white rounded-full bg-transparent text-white w-full border-2 border-white py-2 px-5 focus:outline-none"
-                        />
-                    </form>
                 </div>
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Поиск"
+                        className="placeholder-white rounded-full bg-transparent text-white w-[280px] border-2 border-white py-2 px-5 focus:outline-none"
+                    />
+                </form>
                 <div className="flex items-center">
                     <button className="text-white font-medium mr-4">Каталог</button>
                     <button className="text-white font-medium">Корзина</button>
