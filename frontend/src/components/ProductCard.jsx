@@ -2,10 +2,19 @@ import { IoBagAddOutline } from 'react-icons/io5';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 
 import { useSpring, animated } from '@react-spring/web';
+import { useEffect, useState } from 'react';
 
 const ProductCard = ({ product }) => {
     const [cartButtonProps, setCartButtonProps] = useSpring(() => ({ scale: 1 }));
     const [favoritesButtonProps, setFavoritesButtonProps] = useSpring(() => ({ scale: 1 }));
+
+    const [oldPriceShow, setOldPriceShow] = useState(false);
+
+    useEffect(() => {
+        if (product.price !== product.oldPrice) {
+            setOldPriceShow(true);
+        }
+    }, []);
 
     const handleAddToCart = () => {
         setCartButtonProps({ scale: 1.4 });
@@ -43,9 +52,11 @@ const ProductCard = ({ product }) => {
                 <p className="text-gray-500 mb-4">{product.desc}</p>
                 <div className="flex justify-between items-center">
                     <p className="text-xl font-bold text-gray-900">{product.price} руб.</p>
-                    <p className="text-xl text-gray-500">
-                        <del>{product.oldPrice} руб.</del>
-                    </p>
+                    {oldPriceShow && (
+                        <p className="text-xl text-gray-500">
+                            <del>{product.oldPrice} руб.</del>
+                        </p>
+                    )}
                 </div>
             </div>
         </div>
