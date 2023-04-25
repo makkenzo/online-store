@@ -1,6 +1,8 @@
 import React from 'react';
 import Background from '../assets/home.png';
 
+import { Link } from 'react-router-dom';
+
 const Header = () => {
     return (
         <header
@@ -21,8 +23,12 @@ const Header = () => {
                     />
                 </form>
                 <div className="flex items-center">
-                    <button className="text-white font-medium mr-4">Каталог</button>
-                    <button className="text-white font-medium">Корзина</button>
+                    <Link to="/catalog" className="text-white font-medium mr-4">
+                        Каталог
+                    </Link>
+                    <Link to="/cart" className="text-white font-medium">
+                        Корзина
+                    </Link>
                 </div>
             </div>
             <hr className="container mx-auto border-t border-white mt-5" />
@@ -32,9 +38,9 @@ const Header = () => {
                     <br /> заслуживает ваш дом
                 </h1>
                 <p className="text-2xl text-white mb-4">Наша мебель — ваше отражение</p>
-                <a href="" className="text-white underline">
+                <Link to="/catalog" className="text-white underline hover:no-underline hover:text-[#f0f0f0]">
                     Перейти в каталог
-                </a>
+                </Link>
             </div>
         </header>
     );

@@ -13,28 +13,28 @@ const SectionFor = () => {
             <div className="mb-8">
                 <h2 className="text-4xl font-bold">Мебель для ...</h2>
             </div>
-            <div className="grid grid-cols-6 gap-4">
-                <div className="col-span-3">
+            <div className="grid md:grid-cols-6 grid-cols-1 gap-4">
+                <div className="md:col-span-3 col-span-1">
                     <Link to="/categories/relax">
                         <CategoryCard title="ОТДЫХА" image={relax} />
                     </Link>
                 </div>
-                <div className="col-span-3">
+                <div className="md:col-span-3 col-span-1">
                     <Link to="/categories/work">
                         <CategoryCard title="РАБОТЫ" image={work} />
                     </Link>
                 </div>
-                <div className="col-span-2">
+                <div className="md:col-span-2 col-span-1">
                     <Link to="/categories/kitchen">
                         <CategoryCard title="КУХНИ" image={kitchen} />
                     </Link>
                 </div>
-                <div className="col-span-2">
+                <div className="md:col-span-2 col-span-1">
                     <Link to="/categories/children">
                         <CategoryCard title="ДЕТСКОЙ" image={baby_room} />
                     </Link>
                 </div>
-                <div className="col-span-2">
+                <div className="md:col-span-2 col-span-1">
                     <Link to="/categories/bathroom">
                         <CategoryCard title="ВАННОЙ" image={bathroom} />
                     </Link>
