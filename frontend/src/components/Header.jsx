@@ -1,8 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
 const Header = ({ header, desc, button }) => {
+    const [query, setQuery] = useState('');
+    const [queryResults, setQueryResults] = useState([]);
+
+    const handleSearch = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.get(`http://localhost:3000/api/products/search?q=${query}`);
+            setQueryResults(response.data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     return (
         <>
             <div className="container mx-auto flex items-center justify-between">
@@ -11,11 +26,13 @@ const Header = ({ header, desc, button }) => {
                         <a href="/">Интерьер.</a>
                     </div>
                 </div>
-                <form>
+                <form onChange={handleSearch}>
                     <input
                         type="text"
                         placeholder="Поиск"
                         className="placeholder-white rounded-full bg-transparent text-white w-[280px] border-2 border-white py-2 px-5 focus:outline-none"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
                     />
                 </form>
                 <div className="flex items-center">
