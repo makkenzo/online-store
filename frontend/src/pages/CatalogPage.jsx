@@ -3,11 +3,13 @@ import ProductCard from '../components/ProductCard';
 
 import Background from '../assets/catalog.png';
 import Footer from '../components/Footer';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import { PuffLoader } from 'react-spinners';
 
 const CatalogPage = () => {
     const location = useLocation();
@@ -66,7 +68,11 @@ const CatalogPage = () => {
     };
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <PuffLoader color="#bcbcbc" size={100} />
+            </div>
+        );
     }
 
     return (

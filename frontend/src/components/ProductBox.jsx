@@ -2,6 +2,8 @@ import ProductCard from './ProductCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { PuffLoader } from 'react-spinners';
+
 const ProductBox = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,7 +31,11 @@ const ProductBox = () => {
     const displayedProducts = sortedProducts.slice(0, 3);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="container mx-auto flex justify-center mb-10">
+                <PuffLoader color="#bcbcbc" size={100} />
+            </div>
+        );
     }
 
     return (

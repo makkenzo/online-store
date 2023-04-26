@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-
+import { PuffLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
-
 import axios from 'axios';
 
 const Catalog = () => {
@@ -24,7 +23,11 @@ const Catalog = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="container mx-auto flex justify-center mb-10">
+                <PuffLoader color="#bcbcbc" size={100} />
+            </div>
+        );
     }
 
     return (
