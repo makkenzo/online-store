@@ -20,7 +20,15 @@ const ProductCard = ({ product }) => {
         setCartButtonProps({ scale: 1.4 });
 
         const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-        cartItems.push(product);
+
+        const existingProductIndex = cartItems.findIndex((item) => item._id === product._id);
+
+        if (existingProductIndex !== -1) {
+            cartItems[existingProductIndex].quantity += 1;
+        } else {
+            cartItems.push({ ...product, quantity: 1 });
+        }
+
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
         setTimeout(() => {
