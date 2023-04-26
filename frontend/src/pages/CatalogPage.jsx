@@ -17,6 +17,7 @@ const CatalogPage = () => {
     const [loading, setLoading] = useState(true);
     const [shownData, setShownData] = useState([]);
     const [numToShow, setNumToShow] = useState(12);
+    const [sortBy, setSortBy] = useState('default');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,6 +43,28 @@ const CatalogPage = () => {
         setNumToShow(numToShow + 12);
     };
 
+    const handleSortBy = (e) => {
+        const selectedValue = e.target.value;
+
+        let sortedData = [];
+
+        switch (selectedValue) {
+            case 'priceAsc':
+                sortedData = [...data].sort((a, b) => a.price - b.price);
+                break;
+            case 'priceDesc':
+                sortedData = [...data].sort((a, b) => b.price - a.price);
+                break;
+            default:
+                sortedData = data;
+                break;
+        }
+
+        setData(sortedData);
+        setShownData(sortedData.slice(0, numToShow));
+        setSortBy(selectedValue);
+    };
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -62,9 +85,12 @@ const CatalogPage = () => {
             <section className="container mx-auto py-12">
                 <div className="flex items-center mb-6 justify-between">
                     <Breadcrumbs pathnames={pathnames} />
-                    <select className="border border-gray-300 rounded-md py-1 px-2">
-                        <option value="new">Порядок: сперва новые</option>
-                        <option value="old">Порядок: сперва старые</option>
+                    <select
+                        className="border border-gray-300 rounded-md py-1 px-2"
+                        onChange={handleSortBy}
+                        value={sortBy}
+                    >
+                        <option value="default">Выберите порядок</option>
                         <option value="priceAsc">Порядок: цена по возрастанию</option>
                         <option value="priceDesc">Порядок: цена по убыванию</option>
                     </select>

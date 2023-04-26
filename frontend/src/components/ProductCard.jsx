@@ -18,6 +18,11 @@ const ProductCard = ({ product }) => {
 
     const handleAddToCart = () => {
         setCartButtonProps({ scale: 1.4 });
+
+        const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
         setTimeout(() => {
             setCartButtonProps({ scale: 1.0 });
         }, 600);
