@@ -48,12 +48,12 @@ const ProductCard = ({ product }) => {
                 </div>
             </div>
             <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-500 mb-4">{product.desc}</p>
+                <h3 className="text-2xl font-semibold mb-2">{product.name}</h3>
+                <p className="text-gray-500 mb-4 text-md">{product.desc}</p>
                 <div className="flex justify-between items-center">
-                    <p className="text-xl font-bold text-gray-900">{product.price} руб.</p>
+                    <p className="text-2xl font-bold text-gray-900">{product.price} руб.</p>
                     {oldPriceShow && (
-                        <p className="text-xl text-gray-500">
+                        <p className="text-2xl text-gray-500">
                             <del>{product.oldPrice} руб.</del>
                         </p>
                     )}
