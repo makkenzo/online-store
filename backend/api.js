@@ -7,7 +7,7 @@ app.use(cors());
 
 require('dotenv').config();
 
-const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(process.env.STORE_DB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/api/products', async (req, res) => {
     try {
