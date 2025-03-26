@@ -1,6 +1,6 @@
-# Онлайн-магазин мебели
+# Online furniture store
 
-Данный репозиторий содержит код онлайн-магазина мебели, созданного с использованием следующих технологий:
+This repository contains the code for an online furniture store created using the following technologies:
 
 -   Vite
 -   ReactJS
@@ -8,6 +8,6 @@
 -   NodeJS Express
 -   MongoDB
 
-## Описание проекта
+## Project Description
 
-Суть проекта заключается в том, что был найден макет сайта онлайн-магазина мебели на Figma и на его основе был сверстан этот сайт с использованием указанных технологий. Кроме того, имеется серверная часть, которая использует NodeJS Express и MongoDB для хранения данных о продуктах и заказах.
+The essence of the project is that there was found a mockup of the site of online furniture store on Figma and on its basis this site was built using the specified technologies. In addition, there is a server side that uses NodeJS Express and MongoDB to store data about products and orders. There is such functionality as: catalog, shopping cart, filtering, search, order placement.
